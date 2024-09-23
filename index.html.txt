@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع بسيط</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="passwordPrompt">
+        <h2>أدخل كلمة السر</h2>
+        <input type="password" id="password">
+        <button onclick="checkPassword()">إرسال</button>
+    </div>
+
+    <div id="loginForm" class="hidden">
+        <h2>أدخل اسم المستخدم وكلمة السر</h2>
+        <input type="text" id="username" placeholder="اسم المستخدم">
+        <input type="password" id="userPassword" placeholder="كلمة السر">
+        <button onclick="showRandomNumber()">إرسال</button>
+    </div>
+
+    <div id="randomNumber" class="hidden">
+        <h2>رقم عشوائي: <span id="numberDisplay"></span></h2>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const correctPassword = "123456"; // كلمة السر الصحيحة
+            const inputPassword = document.getElementById('password').value;
+
+            if (inputPassword === correctPassword) {
+                document.getElementById('passwordPrompt').classList.add('hidden');
+                document.getElementById('loginForm').classList.remove('hidden');
+            } else {
+                alert('كلمة السر خاطئة!');
+            }
+        }
+
+        function showRandomNumber() {
+            const username = document.getElementById('username').value;
+            const userPassword = document.getElementById('userPassword').value;
+
+            if (username && userPassword) {
+                const randomNumber = Math.floor(Math.random() * (99999999 - 1000000 + 1)) + 1000000;
+                document.getElementById('loginForm').classList.add('hidden');
+                document.getElementById('randomNumber').classList.remove('hidden');
+                document.getElementById('numberDisplay').innerText = randomNumber;
+            } else {
+                alert('يرجى ملء جميع الحقول!');
+            }
+        }
+    </script>
+
+</body>
+</html>
