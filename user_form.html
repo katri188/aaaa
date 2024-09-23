@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدخال البيانات</title>
+    <style>
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        input, button {
+            width: 90%;
+            max-width: 300px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #555;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<h1>إدخال البيانات</h1>
+<form action="/generate_code" method="POST">
+    <input type="text" name="username" placeholder="اسم المستخدم" required>
+    <input type="password" name="password" placeholder="كلمة السر" required>
+    <button type="submit">توليد الكود</button>
+</form>
+
+<a href="/" style="text-decoration: none;">
+    <button>العودة إلى الصفحة الرئيسية</button>
+</a>
+
+</body>
+</html>

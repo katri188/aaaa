@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض الكود</title>
+    <style>
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .code-display {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 400px;
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #555;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<h1>الكود الناتج</h1>
+<div class="code-display">
+    <p>الكود 1: {{ code1 }}</p>
+    <p>الكود 2: {{ code2 }}</p>
+</div>
+
+<a href="/" style="text-decoration: none;">
+    <button>العودة إلى الصفحة الرئيسية</button>
+</a>
+
+</body>
+</html>
